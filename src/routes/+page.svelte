@@ -1,4 +1,6 @@
 <script lang="ts">
+    import ModeToggle from "$lib/components/ui/ModeToggle.svelte";
+
 
 </script>
 
@@ -8,6 +10,9 @@
 </svelte:head>
 
 <div>
+	<header>
+		<ModeToggle/>
+	</header>
 	Hello world
 
 	<footer>
