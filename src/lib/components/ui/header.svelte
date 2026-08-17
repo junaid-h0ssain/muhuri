@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { enhance } from "$app/forms";
     import Button from "./button/button.svelte";
     import ModeToggle from "./ModeToggle.svelte";
     import { page } from "$app/state";
@@ -11,7 +12,9 @@
     <div class="flex flex-row items-center gap-3">
         {#if page.data.user}
             <span class="text-sm font-medium">Hi, {page.data.user.name || page.data.user.email}</span>
-            <Button variant="outline" href="/auth/sign-out">Sign Out</Button>
+            <form method="post" action="/auth/sign-out" use:enhance>
+                <Button variant="outline" type="submit">Sign Out</Button>
+            </form>
         {:else}
             <Button variant="outline" href="/auth/login">Login</Button>
             <Button href="/auth/sign-up">Sign Up</Button>
