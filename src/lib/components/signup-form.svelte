@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { enhance } from "$app/forms";
 	import * as Card from "$lib/components/ui/card/index.js";
 	import * as Field from "$lib/components/ui/field/index.js";
 	import { Button } from "$lib/components/ui/button/index.js";
@@ -6,72 +7,72 @@
 	import { cn } from "$lib/utils.js";
 	import type { HTMLAttributes } from "svelte/elements";
 
-	let { class: className, ...restProps }: HTMLAttributes<HTMLDivElement> =
-		$props();
+	let { class: className, form, ...restProps }: HTMLAttributes<HTMLDivElement> & { form?: { message?: string } } = $props();
+
+	const id = $props.id();
 </script>
 
 <div class={cn("flex flex-col gap-6", className)} {...restProps}>
 	<Card.Root class="overflow-hidden p-0">
 		<Card.Content class="grid p-0 md:grid-cols-2">
-			<form class="p-6 md:p-8">
+			<form method="post" action="/auth/sign-up?/signUpEmail" use:enhance class="p-6 md:p-8">
 				<Field.Group>
 					<div class="flex flex-col items-center gap-2 text-center">
 						<h1 class="text-2xl font-bold">Create your account</h1>
 						<p class="text-sm text-balance text-muted-foreground">
-							Enter your email below to create your account
+							Enter your details below to create your account
 						</p>
 					</div>
+
+					{#if form?.message}
+						<p class="text-sm font-medium text-destructive text-center">{form.message}</p>
+					{/if}
+
 					<Field.Field>
-						<Field.Label for="name">Full Name</Field.Label>
+						<Field.Label for="name-{id}">Full Name</Field.Label>
 						<Input
-							id="name"
+							id="name-{id}"
+							name="name"
 							type="text"
 							placeholder="John Doe"
 							required
 						/>
 					</Field.Field>
 					<Field.Field>
-						<Field.Label for="email">Email</Field.Label>
+						<Field.Label for="email-{id}">Email</Field.Label>
 						<Input
-							id="email"
+							id="email-{id}"
+							name="email"
 							type="email"
 							placeholder="m@example.com"
 							required
 						/>
 						<Field.Description>
-							We'll use this to contact you. We will not share
-							your email with anyone else.
+							We'll use this to contact you. We will not share your email with anyone else.
 						</Field.Description>
 					</Field.Field>
 					<Field.Field>
 						<Field.Field class="grid grid-cols-2 gap-4">
 							<Field.Field>
-								<Field.Label for="password"
-									>Password</Field.Label
-								>
-								<Input id="password" type="password" required />
+								<Field.Label for="password-{id}">Password</Field.Label>
+								<Input id="password-{id}" name="password" type="password" required />
 							</Field.Field>
 							<Field.Field>
-								<Field.Label for="confirm-password"
-									>Confirm Password</Field.Label
-								>
+								<Field.Label for="confirm-password-{id}">Confirm Password</Field.Label>
 								<Input
-									id="confirm-password"
+									id="confirm-password-{id}"
+									name="confirmPassword"
 									type="password"
 									required
 								/>
 							</Field.Field>
 						</Field.Field>
-						<Field.Description
-							>Must be at least 8 characters long.</Field.Description
-						>
+						<Field.Description>Must be at least 8 characters long.</Field.Description>
 					</Field.Field>
 					<Field.Field>
-						<Button type="submit">Create Account</Button>
+						<Button type="submit" class="w-full">Create Account</Button>
 					</Field.Field>
-					<Field.Separator
-						class="*:data-[slot=field-separator-content]:bg-card"
-					>
+					<Field.Separator class="*:data-[slot=field-separator-content]:bg-card">
 						Or continue with
 					</Field.Separator>
 					<Field.Field class="grid grid-cols-3 gap-4">
@@ -117,6 +118,7 @@
 					</Field.Description>
 				</Field.Group>
 			</form>
+
 			<div class="relative hidden bg-muted md:block">
 				<img
 					src="/placeholder.svg"
@@ -127,7 +129,6 @@
 		</Card.Content>
 	</Card.Root>
 	<Field.Description class="px-6 text-center">
-		By clicking continue, you agree to our <a href="#/">Terms of Service</a>
-		and <a href="#/">Privacy Policy</a>.
+		By clicking continue, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
 	</Field.Description>
 </div>
