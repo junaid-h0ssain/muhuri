@@ -5,8 +5,9 @@ import { env } from '$env/dynamic/private';
 import { building } from '$app/environment';
 
 export function getDb() {
-    const url = env.DATABASE_URL;
-    if (!env.DATABASE_URL && !building) {
+    const url = env.DATABASE_URL ?? (building ? 'postgresql://build:build@localhost/build' : undefined);
+
+    if (!url) {
         throw new Error('DATABASE_URL is not set');
     }
 
