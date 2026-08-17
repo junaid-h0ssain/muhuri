@@ -5,7 +5,7 @@ import { env } from '$env/dynamic/private';
 import { building } from '$app/environment';
 
 export function getDb() {
-    const url = env.DATABASE_URL!;
+    const url = env.DATABASE_URL;
     if (!env.DATABASE_URL && !building) {
         throw new Error('DATABASE_URL is not set');
     }

@@ -7,6 +7,6 @@
 
 <div class="flex h-screen flex-col items-center justify-center">
 	<div class="w-full max-w-sm md:max-w-3xl">
-		<LoginForm {form} />
+		<LoginForm form={form ?? undefined} />
 	</div>
 </div>
