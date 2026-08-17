@@ -1,11 +1,16 @@
 import { drizzle } from 'drizzle-orm/neon-http';
 import { neon } from '@neondatabase/serverless';
 import * as schema from './schema';
-import { env } from '$env/dynamic/private';
-import { building } from '$app/environment';
+let envUrl: string | undefined;
+try {
+    const { env } = await import('$env/dynamic/private');
+    envUrl = env.DATABASE_URL;
+} catch {
+    envUrl = process.env.DATABASE_URL;
+}
 
 export function getDb() {
-    const url = env.DATABASE_URL ?? (building ? 'postgresql://build:build@localhost/build' : undefined);
+    const url = envUrl ?? process.env.DATABASE_URL;
 
     if (!url) {
         throw new Error('DATABASE_URL is not set');

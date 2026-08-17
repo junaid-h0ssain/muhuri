@@ -18,6 +18,7 @@
     "npm:clsx@^2.1.1": "2.1.1",
     "npm:drizzle-kit@~0.31.10": "0.31.10",
     "npm:drizzle-orm@~0.45.2": "0.45.2_@neondatabase+serverless@1.1.0_kysely@0.29.5",
+    "npm:drizzle-seed@~0.3.1": "0.3.1_drizzle-orm@0.45.2__@neondatabase+serverless@1.1.0__kysely@0.29.5",
     "npm:mode-watcher@^1.1.0": "1.1.0_svelte@5.56.9",
     "npm:phosphor-svelte@^3.1.0": "3.1.0_svelte@5.56.9_vite@8.2.1__@types+node@24.13.3",
     "npm:shadcn-svelte@^1.5.0": "1.5.0_svelte@5.56.9",
@@ -28,6 +29,7 @@
     "npm:tailwindcss@^4.3.0": "4.3.3",
     "npm:tw-animate-css@^1.4.0": "1.4.0",
     "npm:typescript@^6.0.3": "6.0.3",
+    "npm:vite-node@6": "6.0.0",
     "npm:vite@^8.0.16": "8.2.1_@types+node@24.13.3"
   },
   "npm": {
@@ -1269,6 +1271,9 @@
         "rc9"
       ]
     },
+    "cac@7.0.0": {
+      "integrity": "sha512-tixWYgm5ZoOD+3g6UTea91eow5z6AAHaho3g0V9CNSNb45gM8SmflpAc+GRd1InC4AqN/07Unrgp56Y94N9hJQ=="
+    },
     "caniuse-lite@1.0.30001809": {
       "integrity": "sha512-xxWVywk6a6Arlk+hymeycyn/VgqEfLDxupvhH/xiY5SJ/18kmi9o6MiO320DCUzypORHLtvh0I4i04tUhCNHNQ=="
     },
@@ -1377,6 +1382,16 @@
         "kysely"
       ]
     },
+    "drizzle-seed@0.3.1_drizzle-orm@0.45.2__@neondatabase+serverless@1.1.0__kysely@0.29.5": {
+      "integrity": "sha512-F/0lgvfOAsqlYoHM/QAGut4xXIOXoE5VoAdv2FIl7DpGYVXlAzKuJO+IphkKUFK3Dz+rFlOsQLnMNrvoQ0cx7g==",
+      "dependencies": [
+        "drizzle-orm",
+        "pure-rand"
+      ],
+      "optionalPeers": [
+        "drizzle-orm"
+      ]
+    },
     "electron-to-chromium@1.5.407": {
       "integrity": "sha512-4R8XgQOdfxexCd/u63lRm6wCHjECwI45MV9wxAs2ggtfWe2hwlo1ql97jKsju2IcJ+jFSTwBssyYoiWhh7mauQ=="
     },
@@ -1386,6 +1401,9 @@
         "graceful-fs",
         "tapable"
       ]
+    },
+    "es-module-lexer@2.3.1": {
+      "integrity": "sha512-shc1dbU90Yl/xq1QrC7QRtfcwURZuVRfPhZbDoldJ1cn1gzDvBaBWlv0eFolj5+0znnPJz5TXLxsN77X/12KTA=="
     },
     "esbuild@0.18.20": {
       "integrity": "sha512-ceqxoedUrcayh7Y7ZX6NdbbDzGROiyVBgC4PriJThBKSVPWnnFHZAkfI1lJT8QFkOwH4qOS2SJkS4wvpGl8BpA==",
@@ -1876,6 +1894,9 @@
         "sisteransi"
       ]
     },
+    "pure-rand@6.1.0": {
+      "integrity": "sha512-bVWawvoZoBYpp6yIoQtQXHZjmz35RSVHnUOTefl8Vcjr8snTPY1wnpSPMWekcFwbxI6gtmT7rSYPFvz71ldiOA=="
+    },
     "rc9@3.0.1": {
       "integrity": "sha512-gMDyleLWVE+i6Sgtc0QbbY6pEKqYs97NGi6isHQPqYlLemPoO8dxQ3uGi0f4NiP98c+jMW6cG1Kx9dDwfvqARQ==",
       "dependencies": [
@@ -2128,6 +2149,17 @@
       ],
       "bin": true
     },
+    "vite-node@6.0.0": {
+      "integrity": "sha512-oj4PVrT+pDh6GYf5wfUXkcZyekYS8kKPfLPXVl8qe324Ec6l4K2DUKNadRbZ3LQl0qGcDz+PyOo7ZAh00Y+JjQ==",
+      "dependencies": [
+        "cac",
+        "es-module-lexer",
+        "obug",
+        "pathe",
+        "vite"
+      ],
+      "bin": true
+    },
     "vite@8.2.1_@types+node@24.13.3": {
       "integrity": "sha512-EU/eS7BH3XROHh2YnBefjM6DBKA6ZeMZEYQbj7NLWg5wHYlhB8B/Mayd5XsgWq+NFYccDOTemRpdETWR6Ka/lw==",
       "dependencies": [
@@ -2200,6 +2232,7 @@
         "npm:clsx@^2.1.1",
         "npm:drizzle-kit@~0.31.10",
         "npm:drizzle-orm@~0.45.2",
+        "npm:drizzle-seed@~0.3.1",
         "npm:mode-watcher@^1.1.0",
         "npm:phosphor-svelte@^3.1.0",
         "npm:shadcn-svelte@^1.5.0",
@@ -2210,6 +2243,7 @@
         "npm:tailwindcss@^4.3.0",
         "npm:tw-animate-css@^1.4.0",
         "npm:typescript@^6.0.3",
+        "npm:vite-node@6",
         "npm:vite@^8.0.16"
       ]
     }
