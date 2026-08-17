@@ -10,7 +10,13 @@
     <div class="flex flex-row p-4">
         <div class="mr-2">
             <Button>
-                <a href="/auth">Sign Up</a></Button>
+                <a href="/auth/login">Login</a>
+            </Button>
+        </div>
+        <div class="mr-2">
+            <Button>
+                <a href="/auth/sign-up">Sign Up</a>
+            </Button>
         </div>
         <ModeToggle />
     </div>
