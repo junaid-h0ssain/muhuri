@@ -1,6 +1,4 @@
 <script lang="ts">
-    import ModeToggle from "$lib/components/ui/ModeToggle.svelte";
-
 
 </script>
 
@@ -9,13 +7,14 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<div>
-	<header>
+<div data-sveltekit-preload-data="hover">
+	<!-- <header class="flex flex-row justify-end items-center p-4">
 		<ModeToggle/>
-	</header>
+	</header> -->
+	
 	Hello world
 
-	<footer>
+	<footer class="fixed bottom-0 left-0 w-full pb-8 text-center">
 		<a href="/demo/better-auth/login"> path to login demo</a>
 	</footer>
 </div>
