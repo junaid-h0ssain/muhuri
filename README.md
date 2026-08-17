@@ -15,7 +15,7 @@ To recreate this project with the same configuration:
 
 ```sh
 # recreate this project
-deno x sv@0.17.0 create --template demo --types ts --add tailwindcss="plugins:none" sveltekit-adapter="adapter:cloudflare+cfTarget:workers" better-auth="demo:password,github" drizzle="database:postgresql+postgresql:neon" --install deno .
+deno x sv@0.17.0 create --template minimal --types ts --add tailwindcss="plugins:none" sveltekit-adapter="adapter:auto" drizzle="database:postgresql+postgresql:neon" better-auth="demo:password,github" --install deno .
 ```
 
 ## Developing
